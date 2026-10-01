@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" role="img" aria-label="Pièce automobile">
+  <rect width="400" height="300" fill="#f1f5f9"/>
+  <rect x="40" y="40" width="320" height="220" rx="16" fill="#e2e8f0"/>
+  <circle cx="200" cy="130" r="42" fill="#bae6fd"/>
+  <rect x="120" y="190" width="160" height="14" rx="7" fill="#cbd5e1"/>
+  <rect x="150" y="214" width="100" height="10" rx="5" fill="#e2e8f0"/>
+</svg>

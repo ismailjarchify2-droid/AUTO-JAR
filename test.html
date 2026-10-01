@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5">
+    <title>Accueil — Pièces Volvo</title>
+    <meta name="description" content="JAR-PIECES — Pièces automobiles Volvo au Maroc. Catalogue, stock disponible et service client.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-Db30Lfl_.css" /><link rel="modulepreload" as="script" href="http://127.0.0.1:8000/build/assets/app-D99hXOC0.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-Db30Lfl_.css" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-D99hXOC0.js"></script>    <style>[x-cloak]{display:none!important}</style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-40 border-b border-brand-border bg-white/95 backdrop-blur" x-data="{ open: false, searchOpen: false }">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <a href="http://127.0.0.1:8000" class="flex shrink-0 items-center gap-2">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-red font-display text-sm font-bold text-white">JP</span>
+            <span class="font-display text-lg font-bold tracking-tight text-brand-anthracite">JAR-PIECES</span>
+        </a>
+
+        <nav class="hidden items-center gap-1 lg:flex">
+                                        <a href="http://127.0.0.1:8000"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition bg-brand-red/20 text-brand-anthracite">
+                    Accueil
+                </a>
+                            <a href="http://127.0.0.1:8000/catalogue"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition text-brand-anthracite-light hover:bg-brand-gray hover:text-brand-anthracite">
+                    Catalogue
+                </a>
+                            <a href="http://127.0.0.1:8000/trouver-ma-piece"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition text-brand-anthracite-light hover:bg-brand-gray hover:text-brand-anthracite">
+                    Trouver ma pièce
+                </a>
+                            <a href="http://127.0.0.1:8000/categories"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition text-brand-anthracite-light hover:bg-brand-gray hover:text-brand-anthracite">
+                    Catégories
+                </a>
+                            <a href="http://127.0.0.1:8000/a-propos"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition text-brand-anthracite-light hover:bg-brand-gray hover:text-brand-anthracite">
+                    À propos
+                </a>
+                            <a href="http://127.0.0.1:8000/contact"
+                   class="rounded-lg px-3 py-2 text-sm font-medium transition text-brand-anthracite-light hover:bg-brand-gray hover:text-brand-anthracite">
+                    Contact
+                </a>
+                    </nav>
+
+        <div class="flex items-center gap-1 sm:gap-2">
+            <button type="button" @click="searchOpen = !searchOpen" class="rounded-lg p-2 text-brand-anthracite hover:bg-brand-gray" aria-label="Rechercher">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/></svg>
+            </button>
+
+            <a href="http://127.0.0.1:8000/panier" class="relative rounded-lg p-2 text-brand-anthracite hover:bg-brand-gray" aria-label="Panier">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M9 22a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+                            </a>
+
+                            <a href="http://127.0.0.1:8000/login" class="hidden rounded-lg px-3 py-2 text-sm font-medium text-brand-anthracite hover:bg-brand-gray sm:inline-flex">Connexion</a>
+            
+            <button type="button" @click="open = !open" class="rounded-lg p-2 text-brand-anthracite hover:bg-brand-gray lg:hidden" aria-label="Menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div x-show="searchOpen" x-cloak class="border-t border-brand-border bg-white">
+        <form action="http://127.0.0.1:8000/recherche" method="GET" class="mx-auto flex max-w-7xl gap-2 px-4 py-3 sm:px-6 lg:px-8">
+            <input type="search" name="q" value="" placeholder="Rechercher une pièce, une référence..." class="input-field flex-1" autofocus>
+            <button type="submit" class="btn-primary">Rechercher</button>
+        </form>
+    </div>
+
+    <div x-show="open" x-cloak class="border-t border-brand-border bg-white lg:hidden">
+        <nav class="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
+                            <a href="http://127.0.0.1:8000" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Accueil</a>
+                            <a href="http://127.0.0.1:8000/catalogue" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Catalogue</a>
+                            <a href="http://127.0.0.1:8000/trouver-ma-piece" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Trouver ma pièce</a>
+                            <a href="http://127.0.0.1:8000/categories" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Catégories</a>
+                            <a href="http://127.0.0.1:8000/a-propos" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">À propos</a>
+                            <a href="http://127.0.0.1:8000/contact" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Contact</a>
+                                        <a href="http://127.0.0.1:8000/login" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Connexion</a>
+                <a href="http://127.0.0.1:8000/register" class="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-anthracite hover:bg-brand-gray">Inscription</a>
+                    </nav>
+    </div>
+</header>
+
+        
+    <main class="flex-1">
+        
+
+<section class="border-b border-brand-border bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+
+            
+            <div class="max-w-3xl">
+
+                <div class="mb-6 h-1.5 w-16 rounded-full bg-brand-red"></div>
+
+                <h1 class="font-display text-4xl font-bold tracking-tight text-brand-anthracite sm:text-5xl lg:text-6xl">
+                    Pièces Volvo, simplement.
+                </h1>
+
+                <p class="mt-6 text-lg leading-relaxed text-brand-anthracite-light">
+                    Découvrez notre catalogue de pièces automobiles Volvo et trouvez rapidement la pièce adaptée à votre véhicule.
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+
+                    <a href="http://127.0.0.1:8000/catalogue" class="btn-primary">
+                        Voir le catalogue
+                    </a>
+
+                    <a href="http://127.0.0.1:8000/contact" class="btn-secondary">
+                        Nous contacter
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            
+            <div class="w-full">
+                <div id="vehicle-finder" class="w-full">
+
+    
+    <div class="mb-4">
+
+        
+            <h2 class="font-display text-lg font-bold leading-tight text-brand-anthracite sm:text-xl">
+                Trouver une pièce pour votre Volvo
+            </h2>
+
+        
+        <p class="mt-1.5 text-sm leading-relaxed text-brand-anthracite-light">
+            Sélectionnez votre modèle et votre année pour trouver les pièces compatibles.
+        </p>
+
+    </div>
+
+
+    
+    <form
+        action="http://127.0.0.1:8000/catalogue"
+        method="GET"
+        x-data="{
+            yearsByModel: JSON.parse('{\u0022volvo-s60\u0022:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-s90\u0022:[2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-v40\u0022:[2012,2013,2014,2015,2016,2017,2018,2019],\u0022volvo-v60\u0022:[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-v90\u0022:[2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-xc40\u0022:[2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-xc60\u0022:[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],\u0022volvo-xc90\u0022:[2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}'),
+            selectedModel: '',
+            selectedYear: '',
+
+            get allYears() {
+                return [...new Set(
+                    Object.values(this.yearsByModel)
+                        .flat()
+                        .map(year => Number(year))
+                )].sort((a, b) => a - b);
+            },
+
+            get availableYears() {
+                if (!this.selectedModel) {
+                    return this.allYears;
+                }
+
+                return this.yearsByModel[this.selectedModel] || [];
+            }
+        }"
+        class="rounded-xl border border-brand-border bg-brand-gray p-4"
+    >
+
+        <div class="space-y-3">
+
+
+            
+            <div>
+
+                <label
+                    for="finder-model"
+                    class="mb-1 block text-xs font-semibold text-brand-anthracite"
+                >
+                    Modèle Volvo
+                </label>
+
+                <select
+                    id="finder-model"
+                    name="vehicle_model"
+                    x-model="selectedModel"
+                    @change="selectedYear = ''"
+                    class="input-field w-full"
+                >
+
+                    <option value="">
+                        Tous les modèles
+                    </option>
+
+                    
+                        <option value="volvo-s60">
+                            Volvo S60
+                        </option>
+
+                    
+                        <option value="volvo-s90">
+                            Volvo S90
+                        </option>
+
+                    
+                        <option value="volvo-v40">
+                            Volvo V40
+                        </option>
+
+                    
+                        <option value="volvo-v60">
+                            Volvo V60
+                        </option>
+
+                    
+                        <option value="volvo-v90">
+                            Volvo V90
+                        </option>
+
+                    
+                        <option value="volvo-xc40">
+                            Volvo XC40
+                        </option>
+
+                    
+                        <option value="volvo-xc60">
+                            Volvo XC60
+                        </option>
+
+                    
+                        <option value="volvo-xc90">
+                            Volvo XC90
+                        </option>
+
+                    
+                </select>
+
+            </div>
+
+
+            
+            <div>
+
+                <label
+                    for="finder-year"
+                    class="mb-1 block text-xs font-semibold text-brand-anthracite"
+                >
+                    Année
+                </label>
+
+                <select
+                    id="finder-year"
+                    name="year"
+                    x-model="selectedYear"
+                    class="input-field w-full"
+                >
+
+                    <option value="">
+                        Toutes les années
+                    </option>
+
+                    <template
+                        x-for="year in availableYears"
+                        :key="year"
+                    >
+
+                        <option
+                            :value="year"
+                            x-text="year"
+                        ></option>
+
+                    </template>
+
+                </select>
+
+            </div>
+
+
+            
+            <div>
+
+                <label
+                    for="finder-category"
+                    class="mb-1 block text-xs font-semibold text-brand-anthracite"
+                >
+                    Catégorie de pièce
+                </label>
+
+                <select
+                    id="finder-category"
+                    name="category"
+                    class="input-field w-full"
+                >
+
+                    <option value="">
+                        Toutes les catégories
+                    </option>
+
+                    
+                        <option
+                            value="freinage"
+                                                    >
+                            Freinage
+                        </option>
+
+                    
+                        <option
+                            value="filtration"
+                                                    >
+                            Filtration
+                        </option>
+
+                    
+                        <option
+                            value="suspension"
+                                                    >
+                            Suspension
+                        </option>
+
+                    
+                        <option
+                            value="electricite"
+                                                    >
+                            Électricité
+                        </option>
+
+                    
+                        <option
+                            value="eclairage"
+                                                    >
+                            Éclairage
+                        </option>
+
+                    
+                        <option
+                            value="moteur"
+                                                    >
+                            Moteur
+                        </option>
+
+                    
+                        <option
+                            value="embrayage"
+                                                    >
+                            Embrayage
+                        </option>
+
+                    
+                        <option
+                            value="carrosserie"
+                                                    >
+                            Carrosserie
+                        </option>
+
+                    
+                </select>
+
+            </div>
+
+
+            
+            <button
+                type="submit"
+                class="btn-primary w-full"
+            >
+                Voir les pièces compatibles
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+    <section class="py-16">
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Catégories
+                    </h2>
+
+                    <p class="mt-2 text-brand-anthracite-light">
+                        Parcourez nos pièces par famille de produits.
+                    </p>
+
+                </div>
+
+                <a
+                    href="http://127.0.0.1:8000/categories"
+                    class="text-sm font-semibold text-brand-anthracite hover:text-brand-anthracite-light"
+                >
+                    Toutes les catégories →
+                </a>
+
+            </div>
+
+
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/freinage"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            F
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Freinage
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                3
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/filtration"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            F
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Filtration
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                4
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/suspension"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            S
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Suspension
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                2
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/electricite"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            �
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Électricité
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                2
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/eclairage"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            �
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Éclairage
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                2
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/moteur"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            M
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Moteur
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                2
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/embrayage"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            E
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Embrayage
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                1
+                                pièce
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+                    <a
+                        href="http://127.0.0.1:8000/categories/carrosserie"
+                        class="card group flex items-center gap-4 p-5 transition hover:border-brand-red hover:shadow-md"
+                    >
+
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-red/10 font-display text-lg font-bold text-brand-red group-hover:bg-brand-red/20">
+                            C
+                        </span>
+
+                        <div class="min-w-0">
+
+                            <h3 class="font-display font-semibold text-brand-anthracite group-hover:text-brand-anthracite-light">
+                                Carrosserie
+                            </h3>
+
+                            <p class="text-sm text-brand-anthracite-light">
+                                2
+                                pièces
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <section class="border-t border-brand-border bg-brand-gray py-16">
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+            <div class="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Nos pièces
+                    </h2>
+
+                    <p class="mt-2 text-brand-anthracite-light">
+                        Dernières références ajoutées au catalogue.
+                    </p>
+
+                </div>
+
+                <a href="http://127.0.0.1:8000/catalogue" class="btn-secondary">
+                    Voir tout le catalogue
+                </a>
+
+            </div>
+
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/plaquettes-de-frein-volvo-xc60" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Plaquettes de frein Volvo XC60" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-BRK-001</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/plaquettes-de-frein-volvo-xc60" class="hover:text-brand-anthracite-light">Plaquettes de frein Volvo XC60</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">850,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/plaquettes-de-frein-volvo-xc60" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="1">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/disque-de-frein-volvo-s60" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Disque de frein Volvo S60" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-BRK-002</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/disque-de-frein-volvo-s60" class="hover:text-brand-anthracite-light">Disque de frein Volvo S60</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">620,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/disque-de-frein-volvo-s60" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="2">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/filtre-a-huile-volvo-xc90" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Filtre à huile Volvo XC90" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-FLT-001</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/filtre-a-huile-volvo-xc90" class="hover:text-brand-anthracite-light">Filtre à huile Volvo XC90</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">95,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/filtre-a-huile-volvo-xc90" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="3">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/filtre-a-air-volvo-xc40" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Filtre à air Volvo XC40" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-FLT-002</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/filtre-a-air-volvo-xc40" class="hover:text-brand-anthracite-light">Filtre à air Volvo XC40</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">145,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/filtre-a-air-volvo-xc40" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="4">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/filtre-habitacle-volvo-v60" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Filtre habitacle Volvo V60" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-FLT-003</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/filtre-habitacle-volvo-v60" class="hover:text-brand-anthracite-light">Filtre habitacle Volvo V60</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">120,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/filtre-habitacle-volvo-v60" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="5">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/amortisseur-volvo-xc90" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Amortisseur Volvo XC90" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-SUS-001</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/amortisseur-volvo-xc90" class="hover:text-brand-anthracite-light">Amortisseur Volvo XC90</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">1 450,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/amortisseur-volvo-xc90" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="6">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/ressort-de-suspension-volvo-xc60" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Ressort de suspension Volvo XC60" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-SUS-002</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/ressort-de-suspension-volvo-xc60" class="hover:text-brand-anthracite-light">Ressort de suspension Volvo XC60</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">780,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/ressort-de-suspension-volvo-xc60" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="7">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+                    <article class="card group flex flex-col overflow-hidden transition hover:shadow-md">
+    <a href="http://127.0.0.1:8000/produit/batterie-70ah-volvo" class="relative block aspect-square overflow-hidden bg-brand-gray">
+        <img src="http://127.0.0.1:8000/images/product-placeholder.svg" alt="Batterie 70Ah Volvo" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy">
+            </a>
+    <div class="flex flex-1 flex-col p-4">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-brand-anthracite-light">VOL-ELE-001</p>
+        <h3 class="mb-2 font-display text-base font-semibold leading-snug">
+            <a href="http://127.0.0.1:8000/produit/batterie-70ah-volvo" class="hover:text-brand-anthracite-light">Batterie 70Ah Volvo</a>
+        </h3>
+        <p class="mb-1 text-lg font-bold text-brand-anthracite">980,00 DH</p>
+        <p class="mb-4 text-xs text-green-700">Disponible</p>
+        <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+            <a href="http://127.0.0.1:8000/produit/batterie-70ah-volvo" class="btn-secondary flex-1 text-center text-xs">Voir le produit</a>
+                            <form action="http://127.0.0.1:8000/panier" method="POST" class="flex-1">
+                    <input type="hidden" name="_token" value="pXow8vV48fD46NuAyIzyc30R6m6iUaTMxCvuENa5" autocomplete="off">                    <input type="hidden" name="product_id" value="8">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="btn-primary w-full text-xs">Ajouter au panier</button>
+                </form>
+                    </div>
+    </div>
+</article>
+
+                
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+<section class="py-16">
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+
+            <div>
+
+                <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-brand-red-dark">
+                    100 % Volvo
+                </p>
+
+                <h2 class="section-title">
+                    Uniquement des pièces pour Volvo
+                </h2>
+
+                <p class="mt-4 text-brand-anthracite-light leading-relaxed">
+                    Chez JAR-PIECES, nous nous concentrons exclusivement sur la marque Volvo. Moteur, freinage, suspension, carrosserie ou électronique — chaque référence est choisie pour sa compatibilité et sa fiabilité.
+                </p>
+
+                <p class="mt-4 text-brand-anthracite-light leading-relaxed">
+                    Que vous conduisiez une Volvo classique ou un modèle récent, notre équipe vous aide à identifier la bonne pièce pour votre véhicule.
+                </p>
+
+                <a href="http://127.0.0.1:8000/catalogue" class="btn-dark mt-8 inline-flex">
+                    Explorer le catalogue
+                </a>
+
+            </div>
+
+
+            <div class="card overflow-hidden bg-brand-anthracite p-8 text-white lg:p-12">
+
+                <div class="grid grid-cols-2 gap-6">
+
+                    <div>
+                        <p class="font-display text-3xl font-bold text-brand-red">Volvo</p>
+                        <p class="mt-1 text-sm text-white/70">Marque exclusive</p>
+                    </div>
+
+                    <div>
+                        <p class="font-display text-3xl font-bold text-brand-red">DH</p>
+                        <p class="mt-1 text-sm text-white/70">Prix en dirhams</p>
+                    </div>
+
+                    <div>
+                        <p class="font-display text-3xl font-bold text-brand-red">Stock</p>
+                        <p class="mt-1 text-sm text-white/70">Disponibilité en ligne</p>
+                    </div>
+
+                    <div>
+                        <p class="font-display text-3xl font-bold text-brand-red">MA</p>
+                        <p class="mt-1 text-sm text-white/70">Livraison Maroc</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="border-t border-brand-border bg-brand-gray py-16">
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-10 text-center">
+
+            <h2 class="section-title">
+                Pourquoi JAR-PIECES ?
+            </h2>
+
+            <p class="mx-auto mt-3 max-w-2xl text-brand-anthracite-light">
+                Un service pensé pour les propriétaires et professionnels Volvo au Maroc.
+            </p>
+
+        </div>
+
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            <article class="card p-6 text-center">
+
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-red/20">
+
+                    <svg class="h-7 w-7 text-brand-anthracite" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h3 class="font-display text-lg font-semibold">
+                    Pièces sélectionnées
+                </h3>
+
+                <p class="mt-2 text-sm text-brand-anthracite-light">
+                    Références contrôlées et compatibles avec les modèles Volvo.
+                </p>
+
+            </article>
+
+
+            <article class="card p-6 text-center">
+
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-red/20">
+
+                    <svg class="h-7 w-7 text-brand-anthracite" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 2 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h3 class="font-display text-lg font-semibold">
+                    Prix transparents
+                </h3>
+
+                <p class="mt-2 text-sm text-brand-anthracite-light">
+                    Tarifs affichés en DH, sans surprise à la commande.
+                </p>
+
+            </article>
+
+
+            <article class="card p-6 text-center">
+
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-red/20">
+
+                    <svg class="h-7 w-7 text-brand-anthracite" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h3 class="font-display text-lg font-semibold">
+                    Stock disponible
+                </h3>
+
+                <p class="mt-2 text-sm text-brand-anthracite-light">
+                    État du stock visible sur chaque fiche produit.
+                </p>
+
+            </article>
+
+
+            <article class="card p-6 text-center">
+
+                <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-red/20">
+
+                    <svg class="h-7 w-7 text-brand-anthracite" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 018 0z"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h3 class="font-display text-lg font-semibold">
+                    Service client
+                </h3>
+
+                <p class="mt-2 text-sm text-brand-anthracite-light">
+                    Une équipe à votre écoute pour vos demandes et devis.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="border-t border-brand-border bg-brand-gray py-16">
+
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+
+        <div class="mx-auto mb-6 h-1.5 w-16 rounded-full bg-brand-red"></div>
+
+        <h2 class="font-display text-2xl font-bold text-brand-anthracite md:text-3xl">
+            Besoin d'aide pour trouver une pièce ?
+        </h2>
+
+        <p class="mx-auto mt-3 max-w-xl text-brand-anthracite-light">
+            Contactez-nous avec votre modèle Volvo et la référence recherchée —
+            nous vous répondons rapidement.
+        </p>
+
+        <a href="http://127.0.0.1:8000/contact" class="btn-primary mt-8 inline-flex">
+            Nous contacter
+        </a>
+
+    </div>
+
+</section>
+
+
+    </main>
+
+    <footer class="mt-auto border-t border-brand-border bg-brand-gray">
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
+        <div>
+            <div class="mb-3 flex items-center gap-2">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-red font-display text-xs font-bold text-white">JP</span>
+                <span class="font-display text-lg font-bold">JAR-PIECES</span>
+            </div>
+            <p class="text-sm text-brand-anthracite-light">Spécialiste des pièces automobiles Volvo. Qualité, stock et service au Maroc.</p>
+        </div>
+        <div>
+            <h3 class="mb-3 font-display text-sm font-semibold uppercase tracking-wide">Navigation</h3>
+            <ul class="space-y-2 text-sm text-brand-anthracite-light">
+                <li><a href="http://127.0.0.1:8000/catalogue" class="hover:text-brand-anthracite">Catalogue</a></li>
+                <li><a href="http://127.0.0.1:8000/categories" class="hover:text-brand-anthracite">Catégories</a></li>
+                <li><a href="http://127.0.0.1:8000/a-propos" class="hover:text-brand-anthracite">À propos</a></li>
+                <li><a href="http://127.0.0.1:8000/contact" class="hover:text-brand-anthracite">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="mb-3 font-display text-sm font-semibold uppercase tracking-wide">Contact</h3>
+            <ul class="space-y-2 text-sm text-brand-anthracite-light">
+                <li>+212 522-000000</li>
+                <li>contact@jar-pieces.ma</li>
+                <li>Casablanca, Maroc</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-brand-border py-4 text-center text-xs text-brand-anthracite-light">
+        &copy; 2026 JAR-PIECES. Tous droits réservés.
+    </div>
+</footer>
+</body>
+</html>

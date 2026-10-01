@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    --color-sky-brand: #0ea5e9;
+    --color-sky-soft: #e0f2fe;
+    --color-gray-page: #f8fafc;
+    --color-gray-line: #e2e8f0;
+    --color-gray-text: #334155;
+    --color-gray-muted: #64748b;
+    --color-gray-ink: #1e293b;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-700 antialiased;
+        font-family: var(--font-sans);
+    }
+
+    h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        @apply text-slate-800 font-semibold tracking-tight;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg bg-sky-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-300;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-600;
+    }
+
+    .btn-whatsapp {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-600;
+    }
+
+    .input-field {
+        @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100;
+    }
+
+    .label-field {
+        @apply mb-1.5 block text-sm font-medium text-slate-700;
+    }
+
+    .card-soft {
+        @apply rounded-xl border border-slate-200 bg-white;
+    }
+
+    .badge-stock {
+        @apply inline-flex rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700;
+    }
+
+    .badge-out {
+        @apply inline-flex rounded-md bg-rose-50 px-2 py-0.5 text-xs font-medium text-rose-700;
+    }
+
+    .badge-order {
+        @apply inline-flex rounded-md bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700;
+    }
+
+    .section-title {
+        @apply text-2xl font-semibold text-slate-800 md:text-3xl;
+    }
+
+    .section-sub {
+        @apply mt-2 text-slate-500;
+    }
+}

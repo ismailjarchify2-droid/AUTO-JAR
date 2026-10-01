@@ -1,0 +1,333 @@
+@extends('layouts.app')
+
+@section('title', 'AUTO-JAR | Pièces automobiles au Maroc')
+@section('meta_description', 'Découvrez notre catalogue de pièces automobiles au Maroc. Freinage, filtres, suspension et plus. Prix en DH.')
+
+@section('content')
+
+{{-- HERO + RECHERCHE --}}
+<section class="border-b border-slate-200 bg-white">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-16">
+
+        <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-sky-600">
+                AUTO-JAR
+            </p>
+
+            <h1 class="mt-3 text-4xl font-semibold leading-tight text-slate-800 md:text-5xl">
+                Votre pièce automobile, simplement.
+            </h1>
+
+            <p class="mt-4 max-w-xl text-lg text-slate-500">
+                Découvrez notre catalogue de pièces automobiles et trouvez la pièce adaptée à votre véhicule.
+            </p>
+
+            <form action="{{ route('catalogue') }}" method="GET" class="mt-8">
+                <label for="hero-search" class="sr-only">
+                    Rechercher
+                </label>
+
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <input
+                        id="hero-search"
+                        type="search"
+                        name="q"
+                        placeholder="Rechercher une pièce, une référence ou une marque..."
+                        class="input-field flex-1"
+                    >
+
+                    <button type="submit" class="btn-primary shrink-0">
+                        Rechercher
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {{-- TROUVER PAR VEHICULE --}}
+        <div class="card-soft p-6">
+
+            <h2 class="text-lg font-semibold text-slate-800">
+                Trouver par véhicule
+            </h2>
+
+            <p class="mt-1 text-sm text-slate-500">
+                Marque → Modèle → Année → Catégorie
+            </p>
+
+            <form
+                action="{{ route('catalogue') }}"
+                method="GET"
+                class="mt-5 grid gap-3 sm:grid-cols-2"
+            >
+
+                {{-- MARQUE --}}
+                <div>
+                    <label class="label-field" for="vehicle_brand">
+                        Marque
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehicle_brand"
+                        name="vehicle_brand"
+                        class="input-field"
+                        placeholder="Ex. BMW, Renault, Peugeot..."
+                    >
+                </div>
+
+                {{-- MODELE --}}
+                <div>
+                    <label class="label-field" for="vehicle_model">
+                        Modèle
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehicle_model"
+                        name="vehicle_model"
+                        class="input-field"
+                        placeholder="Ex. X5, Clio, 208..."
+                    >
+                </div>
+
+                {{-- ANNEE --}}
+                <div>
+                    <label class="label-field" for="vehicle_year">
+                        Année
+                    </label>
+
+                    <input
+                        type="number"
+                        id="vehicle_year"
+                        name="vehicle_year"
+                        class="input-field"
+                        placeholder="Ex. 2022"
+                        min="1950"
+                        max="2030"
+                    >
+                </div>
+
+                {{-- CATEGORIE --}}
+                <div>
+                    <label class="label-field" for="category_id">
+                        Catégorie
+                    </label>
+
+                    <select
+                        id="category_id"
+                        name="category_id"
+                        class="input-field"
+                    >
+                        <option value="">
+                            Catégorie
+                        </option>
+
+                        @foreach($categories as $cat)
+                            <option value="{{ $cat->id }}">
+                                {{ $cat->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- BUTTON --}}
+                <div class="sm:col-span-2">
+                    <button
+                        type="submit"
+                        class="btn-primary w-full"
+                    >
+                        Rechercher
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+{{-- PIECES POPULAIRES --}}
+<section class="border-y border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+
+        <div class="flex items-end justify-between gap-4">
+
+            <div>
+                <h2 class="section-title">
+                    Pièces populaires
+                </h2>
+
+                <p class="section-sub">
+                    Sélection pour le parc automobile marocain
+                </p>
+            </div>
+
+            <a
+                href="{{ route('catalogue') }}"
+                class="text-sm font-medium text-sky-600 hover:text-sky-700"
+            >
+                Catalogue
+            </a>
+
+        </div>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+            @foreach($featured as $product)
+
+                @include('partials.product-card', [
+                    'product' => $product
+                ])
+
+            @endforeach
+
+        </div>
+
+    </div>
+</section>
+
+
+{{-- MARQUES AUTOMOBILES --}}
+<section class="mx-auto max-w-7xl px-4 py-14">
+
+    <div class="flex items-end justify-between gap-4">
+
+        <div>
+            <h2 class="section-title">
+                Marques automobiles
+            </h2>
+
+            <p class="section-sub">
+                Dacia, Renault, Peugeot et plus encore
+            </p>
+        </div>
+
+        {{-- VOIR TOUTES LES MARQUES --}}
+       @if($vehicleBrandsCount > 12)
+    <a
+        href="{{ route('marques.index') }}"
+        class="shrink-0 text-sm font-medium text-sky-600 hover:text-sky-700"
+    >
+        Voir toutes les marques
+    </a>
+@endif
+
+    </div>
+
+    {{-- 18 MARQUES MAXIMUM SUR LA HOME --}}
+    <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+
+        @foreach($vehicleBrands as $vb)
+
+            <a
+                href="{{ route('modeles.show', $vb) }}"
+                class="card-soft flex flex-col items-center justify-center gap-3 px-3 py-5 text-center transition hover:border-sky-200 hover:text-sky-600"
+            >
+
+                <div class="flex h-20 w-full items-center justify-center bg-slate-100">
+
+                    <img
+                        src="{{ asset('images/brands/' . $vb->slug . '.png') }}"
+                        alt="{{ $vb->name }}"
+                        class="h-16 w-auto object-contain"
+                    >
+
+                </div>
+
+                <span class="text-sm font-semibold text-slate-700">
+                    {{ $vb->name }}
+                </span>
+
+            </a>
+
+        @endforeach
+
+    </div>
+
+</section>
+
+
+{{-- CATEGORIES --}}
+<section class="mx-auto max-w-7xl px-4 py-14">
+
+    <div class="flex items-end justify-between gap-4">
+
+        <div>
+            <h2 class="section-title">
+                Catégories
+            </h2>
+
+            <p class="section-sub">
+                Parcourez nos familles de pièces
+            </p>
+        </div>
+
+        <a
+            href="{{ route('categories.index') }}"
+            class="text-sm font-medium text-sky-600 hover:text-sky-700"
+        >
+            Tout voir
+        </a>
+
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+        @foreach($categories as $category)
+
+            <a
+                href="{{ route('categories.show', $category) }}"
+                class="card-soft p-5 transition hover:border-sky-200"
+            >
+
+                <h3 class="font-semibold text-slate-800">
+                    {{ $category->name }}
+                </h3>
+
+                <p class="mt-1 text-sm text-slate-500 line-clamp-2">
+                    {{ $category->description }}
+                </p>
+
+                <p class="mt-3 text-xs font-medium text-sky-600">
+                    {{ $category->products_count }} pièces
+                </p>
+
+            </a>
+
+        @endforeach
+
+    </div>
+
+</section>
+
+
+{{-- DEMANDE DE PIECE --}}
+<section class="border-t border-slate-200 bg-sky-50">
+
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-12 md:flex-row md:items-center">
+
+        <div>
+
+            <h2 class="text-2xl font-semibold text-slate-800">
+                Vous ne trouvez pas votre pièce ?
+            </h2>
+
+            <p class="mt-2 text-slate-500">
+                Envoyez-nous une demande. Nous recherchons la pièce et vous recontactons rapidement.
+            </p>
+
+        </div>
+
+        <a
+            href="{{ route('demande-piece.create') }}"
+            class="btn-primary"
+        >
+            Faire une demande
+        </a>
+
+    </div>
+
+</section>
+
+@endsection
