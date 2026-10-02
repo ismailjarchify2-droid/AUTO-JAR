@@ -20,6 +20,14 @@
         </div>
     @endif
 
+    @if(session('error') || $errors->any())
+        <div class="border-b border-rose-100 bg-rose-50">
+            <div class="mx-auto max-w-7xl px-4 py-3 text-sm text-rose-700">
+                {{ session('error') ?: $errors->first() }}
+            </div>
+        </div>
+    @endif
+
     <main class="flex-1">
         @yield('content')
     </main>

@@ -24,6 +24,7 @@
                     ['admin.categories.index', 'Catégories'],
                     ['admin.brands.index', 'Marques pièces'],
                     ['admin.vehicle-brands.index', 'Marques véhicules'],
+                    ['admin.orders.index', 'Commandes'],
                     ['admin.part-requests.index', 'Demandes'],
                     ['admin.messages.index', 'Messages'],
                     ['admin.users.index', 'Utilisateurs'],
@@ -52,6 +53,12 @@
 
         @if(session('success'))
             <div class="border-b border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 lg:px-8">{{ session('success') }}</div>
+        @endif
+
+        @if(session('error') || $errors->any())
+            <div class="border-b border-rose-100 bg-rose-50 px-4 py-3 text-sm text-rose-700 lg:px-8">
+                {{ session('error') ?: $errors->first() }}
+            </div>
         @endif
 
         <main class="flex-1 p-4 lg:p-8">

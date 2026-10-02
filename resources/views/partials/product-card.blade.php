@@ -26,4 +26,12 @@
             </div>
         </div>
     </a>
+    <div class="p-4 pt-0">
+        <form action="{{ route('panier.ajouter') }}" method="POST" class="js-add-to-cart-form" data-cart-add>
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="btn-primary w-full">Ajouter au panier</button>
+        </form>
+    </div>
 </article>

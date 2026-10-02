@@ -33,6 +33,11 @@
                 <label class="sr-only" for="header-search">Recherche</label>
                 <input id="header-search" type="search" name="q" value="{{ request('q') }}" placeholder="Rechercher..." class="w-44 rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100 lg:w-56">
             </form>
+            <a href="{{ route('panier.index') }}" class="js-cart-link inline-flex items-center gap-2 rounded-lg border border-sky-100 bg-sky-50 px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-100 relative" data-cart-link>
+                <span aria-hidden="true">🛒</span>
+                <span class="js-cart-label">Panier @if($cartCount > 0)({{ $cartCount }})@endif</span>
+                <span class="js-cart-badge {{ $cartCount > 0 ? '' : 'hidden' }} absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-sky-600 px-1 text-[10px] font-semibold text-white">{{ $cartCount > 0 ? $cartCount : 0 }}</span>
+            </a>
             <a href="{{ route('login') }}" class="hidden rounded-lg px-3 py-2 text-sm text-slate-500 hover:text-sky-600 sm:inline">Connexion</a>
             <button id="mobile-menu-toggle" type="button" class="rounded-lg border border-slate-200 p-2 text-slate-600 lg:hidden" aria-label="Menu">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -50,6 +55,9 @@
             <a href="{{ route('about') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700">À propos</a>
             <a href="{{ route('faq') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700">FAQ</a>
             <a href="{{ route('contact') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700">Contact</a>
+            <a href="{{ route('panier.index') }}" class="js-cart-link rounded-lg px-3 py-2 text-sm font-medium text-slate-700" data-cart-link>
+                <span class="js-cart-label">Panier @if($cartCount > 0)({{ $cartCount }})@endif</span>
+            </a>
             <form action="{{ route('catalogue') }}" method="GET" class="pt-2">
                 <input type="search" name="q" placeholder="Rechercher une pièce..." class="input-field">
             </form>

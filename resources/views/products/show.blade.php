@@ -48,6 +48,16 @@
             <p class="mt-5 text-slate-600">{{ $product->short_description }}</p>
 
             <div class="mt-6 flex flex-wrap gap-3">
+                @if($product->availability !== 'out_of_stock')
+                    <form action="{{ route('panier.ajouter') }}" method="POST" class="js-add-to-cart-form" data-cart-add>
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn-primary">Ajouter au panier</button>
+                    </form>
+                @else
+                    <button type="button" class="btn-secondary cursor-not-allowed opacity-60" disabled>Produit indisponible</button>
+                @endif
                 <a href="{{ route('demande-piece.create', ['produit' => $product->slug]) }}" class="btn-primary">Demander cette pièce</a>
                 <a href="https://wa.me/{{ $siteSettings['whatsapp'] }}?text={{ urlencode('Bonjour, je suis intéressé par : '.$product->name.' ('.$product->reference.')') }}"
                    target="_blank" rel="noopener" class="btn-whatsapp">WhatsApp</a>

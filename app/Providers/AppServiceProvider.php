@@ -53,6 +53,29 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        View::composer('*', function ($view) {
+            $cart = session()->get('cart', []);
+            $cartCount = 0;
+
+            if (is_array($cart)) {
+                foreach ($cart as $quantity) {
+                    if (is_array($quantity)) {
+                        if (isset($quantity['quantity'])) {
+                            $cartCount += (int) $quantity['quantity'];
+                            continue;
+                        }
+
+                        $cartCount += array_sum(array_map('intval', $quantity));
+                        continue;
+                    }
+
+                    $cartCount += max(0, (int) $quantity);
+                }
+            }
+
+            $view->with('cartCount', $cartCount);
+        });
+
         View::composer('layouts.app', function ($view) {
             try {
                 $view->with('navCategories', Category::query()->where('is_active', true)->orderBy('sort_order')->limit(8)->get());
